@@ -9,7 +9,9 @@ import styles from "./styles";
 
 class CoffeeItem extends Component {
   handlePress() {
-    alert("Pressed");
+    this.props.navigation.navigate("DetailScreen", {
+      coffeeData: this.props.coffeeShop
+    });
   }
   render() {
     const { coffeeShop } = this.props;
@@ -21,7 +23,7 @@ class CoffeeItem extends Component {
         <View style={styles.overlay} />
         <ListItem
           button
-          onPress={() => this.handlePress(coffeeShop)}
+          onPress={() => this.handlePress()}
           style={styles.listitem}
         >
           <Card style={styles.transparent}>
